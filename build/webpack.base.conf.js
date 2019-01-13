@@ -36,6 +36,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      '__styles__': resolve('src/assets/styles'),
     }
   },
   module: {
@@ -64,7 +65,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          name: utils.assetsPath('media/[name].[alihash:7].[ext]')
         }
       },
       {
