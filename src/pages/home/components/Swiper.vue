@@ -34,8 +34,9 @@
 </script>
 
 <style lang="stylus" scoped>
-	// 宽高比固定不能使用height去设置高度，height的高度比例是对应的父级元素
+	// 宽高比固定不能使用百分比去设置height高度，height的高度比例是对应的父级元素
 	// 需要使用 height:0 overfloat:hidden padding-bottom:比例 来设置
+	// padding-bottom 百分比的高度是对应this的宽度width
 	.wrapper
 		width: 100%
 		height: 0
