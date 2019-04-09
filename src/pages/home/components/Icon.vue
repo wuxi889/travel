@@ -81,6 +81,7 @@
 		height: 0
 		overflow: hidden
 		padding-bottom: 50%
+		margin: .25rem 0;
 		.icon
 			width: 25%
 			float: left

@@ -18,7 +18,7 @@
 			return {
 				swiperOption: {
 					pagination: '.swiper-pagination',
-					loop: true
+					loop: false
 				},
 				swiperList: [{
 					id: 'img1',
