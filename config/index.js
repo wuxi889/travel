@@ -10,15 +10,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    // 临时路由，让程序中的api文件夹在未打包前指向重写的路径
-    proxyTable: {
-        '/api': {
-            target: 'http://localhost:8080',
-            pathRewrite: {
-                '^/api': '/static/mock/'
-            }
-        }
-    },
+    proxyTable: {},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

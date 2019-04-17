@@ -12,7 +12,7 @@
 			输入城市/景点/游玩主题
 		</div>
 		<div class="header-right">
-			{{city}}
+			城市
 			<svg class="iconfont icon-arrow-solid-bottom" aria-hidden="true">
 			    <use xlink:href="#icon-arrow-solid-bottom"></use>
 			</svg>
@@ -26,10 +26,7 @@
 	// npm install stylus --save
 	// npm install stylus-loader --save
 	export default {
-		name: 'HomeHeader',
-		props: {
-			city: String
-		}
+		name: 'HomeHeader'
 	}
 </script>
 

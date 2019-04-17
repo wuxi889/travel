@@ -1,9 +1,9 @@
 <template>
 	<div class="wrapper">
-  	<swiper :options="swiperOption" v-if="showSwiper">
+  	<swiper :options="swiperOption">
 	    <!-- slides -->
-	    <swiper-slide v-for="(item) of list" :key="item.id">
-	    	<img class="swiper-image" :src="item.imgUrl" />
+	    <swiper-slide v-for="(item) of swiperList" :key="item.id">
+	    	<img class="swiper-image" :src="item.url" />
 	    </swiper-slide>
 	    <!-- Optional controls -->
 	    <div class="swiper-pagination"  slot="pagination"></div>
@@ -14,20 +14,20 @@
 <script type="text/javascript">
 	export default {
 		name: "HomeSwiper",
-		props: {
-			list: Array
-		},
 		data () {
 			return {
 				swiperOption: {
 					pagination: '.swiper-pagination',
 					loop: false
-				}
-			}
-		},
-		computed: {
-			showSwiper () {
-				return this.list.length
+				},
+				swiperList: [{
+					id: 'img1',
+					url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548265021620&di=f038485903cc0219d9b8a71c4c6f4f9f&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01398c5942618ca8012193a3f97976.jpg'
+				},
+				{
+					id: 'img2',
+					url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548264972406&di=606bdbb62202abcc089d6eba29f96201&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019a0558be22d6a801219c77d0578a.jpg%402o.jpg'
+				}]
 			}
 		}
 	}
