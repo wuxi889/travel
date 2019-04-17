@@ -11,12 +11,14 @@
 			</svg>
 			输入城市/景点/游玩主题
 		</div>
-		<div class="header-right">
-			{{city}}
-			<svg class="iconfont icon-arrow-solid-bottom" aria-hidden="true">
-			    <use xlink:href="#icon-arrow-solid-bottom"></use>
-			</svg>
-		</div>
+		<router-link to='/city'>
+			<div class="header-right">
+				{{city}}
+				<svg class="iconfont icon-arrow-solid-bottom" aria-hidden="true">
+				    <use xlink:href="#icon-arrow-solid-bottom"></use>
+				</svg>
+			</div>
+		</router-link>
 	</div>
 </template>
 
@@ -38,19 +40,20 @@
 	@import '~__styles__/varibles.styl'
 	.header
 		display: flex
-		height: .86rem
+		height: $headerHeight
 		background-color: $bgColor
 		color: #FFF
 		.header-left
 			width: .64rem
 			float: left
 			margin-left: .25rem
-			line-height: .86rem
+			line-height: $headerHeight
 		.header-right
 			width: 1.24rem
 			float: right
 			text-align: center
 			line-height: .86rem
+			color: #FFF
 		.header-mid
 			flex: 1
 			background-color: #FFF
