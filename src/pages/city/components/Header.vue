@@ -35,6 +35,7 @@
 		color: #FFF
 		background-color: $bgColor
 		font-size: .32rem
+		font-weight: bold
 		.header-back
 			width: .64rem
 			text-align: center
