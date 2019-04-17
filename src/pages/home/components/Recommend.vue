@@ -4,7 +4,7 @@
 			热门推荐
 		</div>
 		<ul>
-			<li class="item border-bottom" v-for="vo of recommendList" :key="vo.id">
+			<li class="item border-bottom" v-for="vo of list" :key="vo.id">
 				<img class="item-img" :src="vo.imgUrl">
 				<div class="item-info">
 					<p class="item-info-title">
@@ -23,27 +23,11 @@
 <script type="text/javascript">
 	export default {
 		name: 'HomeRecommend',
+		props: {
+			list: Array
+		},
 		data: function () {
 			return {
-				recommendList: [{
-					id: '000001',
-					imgUrl: 'http://img1.qunarzz.com/sight/p0/1807/ed/edd524723b882b48a3.img.jpg_250x250_336a42c9.jpg',
-					title: '小河那流水，那哗啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦',
-					desc: '犹如那晴天霹雳，地动山摇，心心相印，印贼做父，父相伤害，还想咋地。。。',
-					price: '99.99'
-				}, {
-					id: '000002',
-					imgUrl: 'http://img1.qunarzz.com/sight/p0/1807/ed/edd524723b882b48a3.img.jpg_250x250_336a42c9.jpg',
-					title: '小河那流水，那哗啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦',
-					desc: '犹如那晴天霹雳，地动山摇，心心相印，印贼做父，父相伤害，还想咋地。。。',
-					price: '99.99'
-				}, {
-					id: '000003',
-					imgUrl: 'http://img1.qunarzz.com/sight/p0/1807/ed/edd524723b882b48a3.img.jpg_250x250_336a42c9.jpg',
-					title: '小河那流水，那哗啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦',
-					desc: '犹如那晴天霹雳，地动山摇，心心相印，印贼做父，父相伤害，还想咋地。。。',
-					price: '99.99'
-				}]
 			}
 		}
 	}
