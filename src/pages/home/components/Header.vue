@@ -13,7 +13,7 @@
 		</div>
 		<router-link to='/city'>
 			<div class="header-right">
-				{{city}}
+				{{this.city}}
 				<svg class="iconfont icon-arrow-solid-bottom" aria-hidden="true">
 				    <use xlink:href="#icon-arrow-solid-bottom"></use>
 				</svg>
@@ -23,6 +23,7 @@
 </template>
 
 <script type="text/javascript">
+	import { mapState, mapGetters } from 'vuex'
 	// 使用stylus
 	// 添加scoped 不影响其他vue的样式
 	// npm install stylus --save
@@ -30,7 +31,12 @@
 	export default {
 		name: 'HomeHeader',
 		props: {
-			city: String
+		},
+		computed: {
+			// 展开运算符
+			// mapState 把 vuex 的数据映射到组件的computed的计算属性里
+			...mapState(['city']),
+			...mapGetters(['doubleCity'])
 		}
 	}
 </script>
@@ -49,7 +55,8 @@
 			margin-left: .25rem
 			line-height: $headerHeight
 		.header-right
-			width: 1.24rem
+			min-width: 1.04rem
+			padding: 0 .15rem
 			float: right
 			text-align: center
 			line-height: .86rem
