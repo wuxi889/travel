@@ -15,6 +15,7 @@
 	import HomeRecommend from './components/Recommend'
 	import HomeWeekend from './components/Weekend'
 	import axios from 'axios'
+	import { mapState } from 'vuex'
 	export default {
 		name: 'Home',
 		components: {
@@ -29,12 +30,14 @@
 				swiperList: [],
 				iconList: [],
 				recommendList: [],
-				weekendList: []
+				weekendList: [],
+				lastcity: '',
 			}
 		},
 		methods: {
 			getHomeInfo () {
-				axios.get('/api/index.json').then(this.getHomeInfoRes)
+				axios.get('/api/index.json?city=' + this.city).then(this.getHomeInfoRes)
+				this.lastcity = this.city
 			},
 			getHomeInfoRes (res) {
 				if (res.data.ret && res.data.data) {
@@ -47,8 +50,18 @@
 
 			}
 		},
+		computed: {
+			...mapState(['city'])
+		},
 		mounted () {
 			this.getHomeInfo()
+		},
+		// 当使用 keepalive 组件后，生命周期函数里会自动添加 activated 函数
+		activated() {
+			if (this.lastcity !== this.city) {
+				this.lastcity = this.city
+				this.getHomeInfo()
+			}
 		}
 	}
 </script>
