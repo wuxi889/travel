@@ -50,8 +50,14 @@
 				}
 			}
 		},
+		// keepalive
 		activated () {
+			// window 是全局对象绑定
 			window.addEventListener('scroll', this.handleScroll)
+		},
+		// 页面即将隐藏或被即将被替换，就会执行 deactivated 钩子函数
+		deactivated () {
+			window.removeEventListener('scroll', this.handleScroll)
 		}
 	}
 </script>
