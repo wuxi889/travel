@@ -4,7 +4,7 @@
 			热门推荐
 		</div>
 		<ul>
-			<li class="item border-bottom" v-for="vo of list" :key="vo.id">
+			<router-link tag="li" class="item border-bottom" v-for="vo of list" :key="vo.id" :to="'/detail/' + vo.id">
 				<img class="item-img" :src="vo.imgUrl">
 				<div class="item-info">
 					<p class="item-info-title">
@@ -15,7 +15,7 @@
 					</p>
 					<button class="item-btn">查看详情</button>
 				</div>
-			</li>
+			</router-link>
 		</ul>
 	</div>
 </template>
