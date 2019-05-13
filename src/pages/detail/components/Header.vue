@@ -84,6 +84,7 @@
 		line-height: 1rem
 		text-align: center
 		background-color: $bgColor
+		z-index: 2
 		font-size: .32rem
 		width: 100%
 		top: 0
