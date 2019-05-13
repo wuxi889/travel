@@ -22,5 +22,9 @@ export default new Router({
         name: 'Detail',
         component: Detail
       }
-  	]
+  	],
+    // 对于所有路由器的导航 打开时都会回到页面顶部
+    scrollBehavior (to, from, savedPosition) {
+      return {x: 0, y: 0}
+    }
 })

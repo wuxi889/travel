@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<detail-banner></detail-banner>
-		<detail-header></detail-header>
+		<detail-banner :sightName="sightName" :bannerImg="bannerImg" :bannerImgs="gallaryImgs"></detail-banner>
+		<detail-header ></detail-header>
 		<div class="content">
 			<detail-list :list="list"></detail-list>
 		</div>
@@ -12,6 +12,7 @@
 	import DetailBanner from './components/Banner'
 	import DetailHeader from './components/Header'
 	import DetailList	from './components/List'
+	import axios		from 'axios'
 	export default {
 		name: 'Detail',
 		components: {
@@ -21,28 +22,36 @@
 		},
 		data () {
 			return {
-				list: [
-					{
-						title: '成人票',
-						children: [
-							{
-								title: '我草你妈的比',
-								children: [{title: '大家草拟吗，快乐你我他'}]
-							},
-							{
-								title: '他草拟爹的比'
-							}
-						]
-					},
-					{
-						title: '学生票'
-					},
-					{
-						title: '儿童票'
-					},
-				]
+				sightName: '',
+				bannerImg: '',
+				gallaryImgs: [],
+				list: [],
 			}
+		},
+		methods: {
+			getDetailInfo () {
+				// 在路由里已经设置获取参数id，可以在 this.$route.params 里获取
+				axios.get('/api/detail.json', {
+					params: {
+						id: this.$route.params.id
+					}
+				}).then(this.handleGetDataSuccess)
+			},
+			handleGetDataSuccess (res) {
+				res = res.data
+				if (res.ret && res.data) {
+					const data = res.data
+					this.sightName = data.sightName
+					this.bannerImg = data.bannerImg
+					this.gallaryImgs = data.gallaryImgs
+					this.list = data.categoryList
+				}
+			}
+		},
+		mounted () {
+			this.getDetailInfo()
 		}
+
 	}
 </script>
 
